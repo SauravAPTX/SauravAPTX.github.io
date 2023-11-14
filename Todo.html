@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parentdiv">
+      <div id="div1">
+        <h1 id="head1">TODOS</h1>
+      </div>
+      <div id="div2">
+        <input placeholder="INPUT" type="text" id="inp" />
+        <button id="but" onclick="submit()">SUBMIT</button>
+      </div>
+      <div id="main"></div>
+    </div>
+  </body>
+</html>
+<script>
+  let body = document.querySelector("body");
+  body.style.backgroundColor = "black";
+  // body.style.display = "flex";
+  // body.style.justifyContent = "center";
+  // body.style.alignItems = "center";
+
+  let parent = document.querySelector("#parentdiv");
+  parent.style.display = "flex";
+  parent.style.flexDirection = "column";
+  // parent.style.justifyContent = "center";
+  parent.style.alignItems = "center";
+  let head1 = document.getElementById("head1");
+  head1.style.color = "cyan";
+  // head1.style.display = "flex";
+  // head1.style.justifyContent = "center";
+  // let inp = document.getElementById("inp");
+  // inp.style.display = "flex";
+  // inp.style.justifyContent = "center";
+  // let but = document.getElementById("but");
+  // but.style.display = "flex";
+  // but.style.justifyContent = "center";
+
+  let todos = [];
+  function submit() {
+    let val = document.querySelector("#inp").value;
+    if (val === "") {
+      alert("Field is required");
+      return;
+    }
+    todos.push(val);
+    // console.log(todos, "Todo");
+    // document.querySelector("#main").innerHTML = "";
+    append(todos);
+    document.querySelector("#inp").value = "";
+  }
+
+  // function appendData(arr) {
+  //   // console.log(arr,"append");
+  //   arr.forEach((element) => {
+  //     console.log(element);
+  //     let p = document.createElement("p");
+  //     p.setAttribute("class", "para");
+  //     p.innertext = "hii";
+  //     main.append(p);
+  //   });
+  // }
+  let main = document.querySelector("#main");
+  function append(arr) {
+    arr.forEach((element) => {
+      console.log(element);
+      let p = document.createElement("p");
+      p.innerText = element;
+      p.style.color = "white";
+      main.append(p);
+    });
+  }
+</script>
